@@ -14,4 +14,15 @@ introJs.dataset.uniqueTextId = "ubwdw6728b";
 
 // form value
 const fullName = document.getElementById("full-Name");
-console.log(fullName.value);
+//console.log(fullName.value);
+
+const email = document.getElementById("email");
+email.style.backgroundColor = "blue";
+email.style.color = "white";
+ email.style.width = "300px";
+    email.style.margin = "50px auto";
+    email.style.padding = "20px";
+    email.style.border = "1px solid #ddd";
+   
+
+//console.log(email.value);
