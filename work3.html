@@ -108,6 +108,9 @@
         const value = Number(enterNumber.value);
         result.textContent = value + " × 10 = " + value * 10;
 
+        if (result.value == "" || isNaN(value))
+        result.textContent = "Enter a valid Number"
+
     });
       
     resetNumber.addEventListener("click", function(){
