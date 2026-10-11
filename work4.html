@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    label,
+    h1,
+    h2,
+    h3,
+    p {
+        font-size: 18px;
+        font-weight: bold;
+        color: #111827;
+    }
+
+    #fullname {
+        width: 260px;
+        padding: 10px 12px;
+        font-size: 16px;
+        border: 2px solid #cbd2d9;
+        border-radius: 6px;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    #fullname:focus {
+        border-color: #2563eb;
+    }
+
+    #submit {
+        padding: 10px 24px;
+        font-size: 15px;
+        color: #fff;
+        background: #2563eb;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+    }
+
+    #submit:hover {
+        background: #1d4ed8;
+    }
+
+    #submit:active {
+        transform: scale(0.97);
+    }
+
+    #message {
+        font-size: 16px;
+        font-weight: bold;
+        color: green;
+    }
+</style>
+<body>
+    <form>
+        <p>First Name</p>
+        <input type="text" 
+        id="fullname"
+        placeholder="Enter your fullname"
+
+        >
+    </form>
+    <button id="submit" type="submit">Submit</button>
+
+  <script>
+    const fullName = document.getElementById("fullname");
+    const submitBtn = document.getElementById("submit");
+
+    submitBtn.addEventListener("click", function (event) {
+        event.preventDefault(); // stops the page from reloading if the button is inside a <form>
+
+        const value = fullName.value.trim();
+
+        // Don't accept an empty name
+        if (value === "") {
+            alert("Please enter your full name.");
+            return;
+        }
+
+        alert("Submitted successfully! Thank you, " + value + ".");
+        fullName.value = ""; // clear the box after submitting
+    });
+</script>
+</body>
+</html>
