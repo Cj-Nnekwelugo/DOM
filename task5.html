@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family:  Georgia, 'Times New Roman', Times, serif;
             background-color: #f0f4f8;
             display: flex;
             justify-content: center;
@@ -145,7 +145,7 @@
                 minlength="8"
             >
 
-            <button type="submit">Register</button>
+            <button id="register">Register</button>
 
         </form>
 
@@ -155,7 +155,29 @@
         </p>
 
     </div>
+      <script>
+        const fullName = document.getElementById("fullname");
+        const email = document.getElementById("email");
+        const passWord = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmpassword");
+        const registerBtn = document.getElementById("register");
 
+
+        registerBtn.addEventListener("click", function(event){
+            event.preventDefault();
+
+            const value = registerBtn.value;
+            
+            if (registerBtn.value == "" || isNaN(value)) {
+                registerBtn.textContent = "Form submitted Sucessfully."
+            } else { 
+               console.log("Form FALLED")
+            }
+
+        });
+
+        
+      </script>
 </body>
 </html>
 
