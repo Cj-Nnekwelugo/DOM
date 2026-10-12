@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family:  Georgia, 'Times New Roman', Times, serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
             background-color: #f0f4f8;
             display: flex;
             justify-content: center;
@@ -64,6 +64,24 @@
 
         input:focus {
             border-color: #2563eb;
+        }
+
+        /* Show/Hide Password Styling */
+        .show-password {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: -10px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .show-password input {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
         }
 
         button {
@@ -135,6 +153,11 @@
                 minlength="8"
             >
 
+            <label for="show-password" class="show-password">
+                <input type="checkbox" id="show-password">
+                Show password
+            </label>
+
             <label for="confirm-password">Confirm Password</label>
             <input
                 type="password"
@@ -145,7 +168,12 @@
                 minlength="8"
             >
 
-            <button id="submit">Register</button>
+            <label for="show-confirm-password" class="show-password">
+                <input type="checkbox" id="show-confirm-password">
+                Show confirm password
+            </label>
+
+            <button type="submit" id="submit">Register</button>
 
         </form>
 
@@ -155,24 +183,46 @@
         </p>
 
     </div>
-     
-<script>
-    const form = document.querySelector("form");
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirm-password");
 
-    form.addEventListener("submit", function(event){
-        event.preventDefault();
+    <script>
+        const form = document.querySelector("form");
 
-       if (password.value !== confirmPassword.value) {
-         alert("Passwords do not match!"); 
-        } else {
-             alert("Registration successful!");
-         form.reset(); }
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirm-password");
+
+        const showPassword = document.getElementById("show-password");
+        const showConfirmPassword = document.getElementById("show-confirm-password");
+
+       
+        showPassword.addEventListener("change", function(){
+            if (showPassword.checked) {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+        });
+
+        showConfirmPassword.addEventListener("change", function(){
+            if (showConfirmPassword.checked) {
+                confirmPassword.type = "text";
+            } else {
+                confirmPassword.type = "password";
+            }
+        });
+
+
         
-    });
-</script>
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
 
+            if (password.value !== confirmPassword.value) {
+                alert("Passwords do not match!");
+            } else {
+                alert("Registration successful!");
+                form.reset();
+            }
+        });
+    </script>
 
 </body>
 </html>
