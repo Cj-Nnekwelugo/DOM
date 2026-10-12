@@ -145,7 +145,7 @@
                 minlength="8"
             >
 
-            <button id="register">Register</button>
+            <button id="submit">Register</button>
 
         </form>
 
@@ -155,29 +155,25 @@
         </p>
 
     </div>
-      <script>
-        const fullName = document.getElementById("fullname");
-        const email = document.getElementById("email");
-        const passWord = document.getElementById("password");
-        const confirmPassword = document.getElementById("confirmpassword");
-        const registerBtn = document.getElementById("register");
+     
+<script>
+    const form = document.querySelector("form");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirm-password");
 
+    form.addEventListener("submit", function(event){
+        event.preventDefault();
 
-        registerBtn.addEventListener("click", function(event){
-            event.preventDefault();
-
-            const value = registerBtn.value;
-            
-            if (registerBtn.value == "" || isNaN(value)) {
-                registerBtn.textContent = "Form submitted Sucessfully."
-            } else { 
-               console.log("Form FALLED")
-            }
-
-        });
-
+       if (password.value !== confirmPassword.value) {
+         alert("Passwords do not match!"); 
+        } else {
+             alert("Registration successful!");
+         form.reset(); }
         
-      </script>
+    });
+</script>
+
+
 </body>
 </html>
 
