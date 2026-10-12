@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Clothings</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: blanchedalmond;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(230, 179, 116);
+            padding: 1.5rem 2rem;
+        }
+
+        /* Logo */
+        .header-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* Hamburger Button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Mobile Screen */
+        @media (max-width: 768px) {
+
+            header {
+                position: relative;
+                flex-wrap: wrap;
+                padding: 1.5rem;
+            }
+
+            .header-title {
+                font-size: 1.4rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+                padding-top: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <h2 class="header-title">Home-Clothings</h2>
+
+        <button class="menu-toggle" id="menuToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="navigation">
+            ☰
+        </button>
+
+        <nav id="navigation">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Programs</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navigation = document.getElementById("navigation");
+
+        menuToggle.addEventListener("click", function () {
+
+            navigation.classList.toggle("active");
+
+            const isOpen = navigation.classList.contains("active");
+
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+
+        });
+    </script>
+
+</body>
+</html>
+
