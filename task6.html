@@ -12,7 +12,23 @@
     <p id="count-value" style="font-weight: 700; font-size: 4rem; color: blue;"></p>
     
 
-    
+    <script>
+        const countDisplay = document.getElementById("count-value");
+let count = 0;
+
+function displayCountValue(currentValue) {
+    countDisplay.textContent = currentValue;
+}
+
+displayCountValue(count);
+
+function increaseCount() {
+    count++;
+    displayCountValue(count);
+}
+ 
+
+setInterval(increaseCount, 500);
     </script>
 </body>
 </html>
