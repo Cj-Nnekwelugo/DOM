@@ -48,3 +48,12 @@ contactForm.addEventListener("submit", (event) => {
     console.log(formData);
     clearFormData();
 });
+
+closeButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+    handleHideModalElement();
+});
+
+document.documentElement.addEventListener("click", () => {
+    handleHideModalElement();
+});
