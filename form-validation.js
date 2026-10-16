@@ -23,3 +23,28 @@ function clearFormData() {
     emailInput.value = "";
     phoneNumberInput.value = "";
 }
+
+contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    
+    const formData = {
+        firstName: firstNameInput.value.trim(),
+        lastName: lastNameInput.value.trim(),
+        email: emailInput.value.trim(),
+        phoneNumber: phoneNumberInput.value.trim()
+    }
+
+    if (!formData.firstName) {
+        displayErrorMessage("Missing first name");        
+        return;
+    }
+
+    if (!formData.email || !formData.email.includes("@")) {
+        displayErrorMessage("Missing email or Invalid email address");
+        return;
+    }
+
+    console.log("Data submitted suucessfully");
+    console.log(formData);
+    clearFormData();
+});
